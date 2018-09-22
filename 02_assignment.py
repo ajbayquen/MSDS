@@ -147,7 +147,35 @@ def exercise07(n):
 # 6. An exit menu option should be added at the end of the displayed list of menu options allowing the user to exit selecting a menu causing the display_menu() function to return back the number of the last menu option chosen prior to exit and also return the length of menu
 # 7. If a valid menu option is chosen, call a function named similarly to the menu option that prints the menu option chosen i.e. def buy_burger() prints('Burger bought!')
 # 8. The menu options should repeatedly be displayed after each selection (and appropriate delegate function is called) until user selects exist
+def display_menu(menu):
 
+    if not isinstance(menu,tuple):
+        return(-1)
+    menu_entries = len(menu)
+    taking_order = True
+    last_order = 0
+    while (taking_order):
+      for i, entry in enumerate(menu):
+         print (i+1,entry)
+      print(i+2,'Exit Menu')
+      print('Pick an entry in the menu by number and hit Enter: ')
+      choice = input()
+      if not (choice.isdigit()) or  int(choice) < 0 or int(choice) > (menu_entries +1):
+          print('Please pick a valid numeric entry from the menu.')
+      elif int(choice) == (menu_entries + 1):
+          taking_order = False
+      else:
+          print (menu[int(choice)-1])
+          print('valid choice')
+          last_order=int(choice)
+          
+    return last_order, menu_entries
+          
+       
+    
+    
+        
+        
 # ------ Place code below here \/ \/ \/ ------
 
 
