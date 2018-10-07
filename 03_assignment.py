@@ -141,6 +141,9 @@ class MangoDB():
 #          print(jstr)
        return jstr
           
+    
+   def display_all_collections(self):
+       print(json.dumps(self.col, indent=4,sort_keys=True))
        
    def display_collection_uuid(self):
        self.rtkey = "default"
